@@ -8,12 +8,15 @@ public class Product {
 
     @Id
     private int productId;
+    private int clientId;
+
     private String productName;
     private int productNumber;
     private int productPrice;
 
-    public Product(int productId, String productName, int productNumber, int productPrice) {
+    public Product(int productId, int clientId, String productName, int productNumber, int productPrice) {
         this.productId = productId;
+        this.clientId = clientId;
         this.productName = productName;
         this.productNumber = productNumber;
         this.productPrice = productPrice;
@@ -28,6 +31,14 @@ public class Product {
 
     public void setProductId(int productId) {
         this.productId = productId;
+    }
+
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
     public String getProductName() {
