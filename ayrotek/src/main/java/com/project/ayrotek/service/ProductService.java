@@ -18,10 +18,18 @@ public class ProductService {
         this.productJpaRepository = productJpaRepository;
     }
 
+
+
     public DataResult<List<Product>>  getAll() {
 
-        return new SuccessDataResult<List<Product>>
-                (this.productJpaRepository.findAll(),"Tüm Ürünler Listelendi");    }
+        try {
+            return new SuccessDataResult<List<Product>>
+                    (this.productJpaRepository.findAll(),"Tüm Ürünler Listelendi");
+        }
+        catch (Exception e){
+            return new ErrorDataResult("Ürünler listenemedi.");
+        }
+           }
 
     public Result addProduct(Product product) {
         this.productJpaRepository.save(product);

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class ProductController {
 
-   public ProductService productService;
+    public ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
@@ -20,32 +20,27 @@ public class ProductController {
 
     @GetMapping("/getAllProduct")
 
-    public DataResult<List<Product>>  getAllProduct(){
+    public DataResult<List<Product>> getAllProduct() {
         return this.productService.getAll();
     }
+
     @PostMapping("/addOneProduct")
-    public Result addProduct(@RequestBody Product product){
+    public Result addProduct(@RequestBody Product product) {
         return this.productService.addProduct(product);
     }
+
     @DeleteMapping("/{deleteProductById}")
 
     public Result deleteProductById(int productId, int clientId) throws Exception {
-        return this.productService.deleteProduct(productId,clientId);
+        return this.productService.deleteProduct(productId, clientId);
     }
+
     @PutMapping("/{updateProductById}")
 
-    public Result updateProduct(@RequestBody Product newProduct){
+    public Result updateProduct(@RequestBody Product newProduct) {
 
-        return  this.productService.updateProduct(newProduct);
+        return this.productService.updateProduct(newProduct);
     }
-
-
-
-
-
-
-
-
 
 
 }
